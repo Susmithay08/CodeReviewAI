@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 from contextlib import asynccontextmanager
 from app.core.database import init_db
 from app.api import review
@@ -31,3 +33,6 @@ app.include_router(review.router, prefix="/api/review", tags=["review"])
 @app.get("/api/health")
 async def health():
     return {"status": "ok", "service": "CodeReview AI"}
+
+frontend_dist = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="static")
