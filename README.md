@@ -6,7 +6,7 @@
 
 ## Quick Start
 
-Live Demo: [https://codereviewai-38fy.onrender.com](#)
+Live Demo: https://codereviewai-38fy.onrender.com
 
 ---
 
